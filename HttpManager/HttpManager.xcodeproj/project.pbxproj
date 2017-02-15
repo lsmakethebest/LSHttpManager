@@ -619,6 +619,7 @@
 			baseConfigurationReference = 11396DE5168AB56EEF6C80C2 /* Pods-HttpManager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = U7SJ4KA3L8;
 				INFOPLIST_FILE = HttpManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -632,6 +633,7 @@
 			baseConfigurationReference = 05AC50EA128DE1355CD24E61 /* Pods-HttpManager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = U7SJ4KA3L8;
 				INFOPLIST_FILE = HttpManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -713,6 +715,7 @@
 				286BD8521E273D9900811B85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		286BD8531E273D9900811B85 /* Build configuration list for PBXNativeTarget "HttpManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -721,6 +724,7 @@
 				286BD8551E273D9900811B85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		286BD8561E273D9900811B85 /* Build configuration list for PBXNativeTarget "HttpManagerUITests" */ = {
 			isa = XCConfigurationList;
@@ -729,6 +733,7 @@
 				286BD8581E273D9900811B85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
