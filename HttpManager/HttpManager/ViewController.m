@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-#import "HttpManager.h"
+#import "LSHttpManager.h"
 
 @interface ViewController ()
 
@@ -25,14 +25,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [HttpManager startNetWorkMonitoringWithBlock:^(NetworkStatus status) {
+    [LSHttpManager startNetWorkMonitoringWithBlock:^(NetworkStatus status) {
         
     }];
 }
 
 - (IBAction)click:(id)sender {
 
-    [HttpManager POSTWithURLString:@"http://101.201.78.184:8005/carrierAPI/snsInfoAction/queryBanner" parameters:nil success:^(NSDictionary *response) {
+    [LSHttpManager POSTWithURLString:@"http://101.201.78.184:8005/carrierAPI/snsInfoAction/queryBanner" parameters:nil success:^(NSDictionary *response) {
         NSLog(@"%@",response);
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
@@ -42,13 +42,14 @@
 
 - (IBAction)download:(id)sender {
     [self.pauseButton setTitle:@"暂停" forState:UIControlStateNormal];
-    self.task= [HttpManager DownLoadFileWithURLString:@"http://www.itiapp.cn/zhimei/php/driver.ipa" parameters:nil savaPath:nil resumeData:nil progress:^(CGFloat progress) {
-                NSLog(@"下载进度：%f%%",progress);
-            } success:^(NSDictionary *response) {
+    self.task= [LSHttpManager TGDownLoadFileWithURLString:@"http://www.itiapp.cn/zhimei/php/driver.ipa" parameters:nil savaPath:nil resumeData:nil success:^(NSDictionary *response) {
         
-            } failure:^(NSError *error) {
-                
-            }];
+    } failure:^(NSError *error) {
+        
+    } progress:^(CGFloat progressValue) {
+        NSLog(@"下载进度：%f%%",progressValue);
+    }];
+
 }
 - (IBAction)pauseOrResume:(UIButton*)sender {
     
@@ -58,18 +59,25 @@
         }];
         [sender setTitle:@"继续" forState:UIControlStateNormal];
     }else{
-        self.task= [HttpManager DownLoadFileWithURLString:@"http://www.itiapp.cn/zhimei/php/driver.ipa" parameters:nil savaPath:nil resumeData:self.data progress:^(CGFloat progress) {
-            NSLog(@"下载进度：%f%%",progress);
-        } success:^(NSDictionary *response) {
+        self.task=[LSHttpManager TGDownLoadFileWithURLString:@"http://www.itiapp.cn/zhimei/php/driver.ipa" parameters:nil savaPath:nil resumeData:self.data success:^(NSDictionary *response) {
             
         } failure:^(NSError *error) {
             
+        } progress:^(CGFloat progressValue) {
+            NSLog(@"下载进度：%f%%",progressValue);
         }];
+        
         [sender setTitle:@"暂停" forState:UIControlStateNormal];
+        
+        
     }
     
 }
 
+- (IBAction)cancelALL:(id)sender {
+    
+    [LSHttpManager cancelAllRequest];
+}
 
 
 @end

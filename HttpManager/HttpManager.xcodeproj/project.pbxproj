@@ -19,6 +19,7 @@
 		287AFB555F76A7CDF527003A /* libPods-HttpManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E9DE474FF3E336133FF586 /* libPods-HttpManager.a */; };
 		496457F328CF43BE45CB5A62 /* libPods-HttpManagerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44279D4C71E230C5F0D4B314 /* libPods-HttpManagerTests.a */; };
 		5C988A68D8879DB1EDFE1D77 /* libPods-HttpManagerUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C5F25263F04D37DE1392425 /* libPods-HttpManagerUITests.a */; };
+		CD588EE31E7A2C54005C9AFD /* LSHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CD588EE21E7A2C54005C9AFD /* LSHttpManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		44279D4C71E230C5F0D4B314 /* libPods-HttpManagerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HttpManagerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E9DE474FF3E336133FF586 /* libPods-HttpManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HttpManager.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C5F25263F04D37DE1392425 /* libPods-HttpManagerUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HttpManagerUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD588EE11E7A2C54005C9AFD /* LSHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSHttpManager.h; sourceTree = "<group>"; };
+		CD588EE21E7A2C54005C9AFD /* LSHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSHttpManager.m; sourceTree = "<group>"; };
 		CFA9DB0A5B1E7F1A76FECD3B /* Pods-HttpManagerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HttpManagerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HttpManagerUITests/Pods-HttpManagerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +137,8 @@
 				286BD8591E273DD400811B85 /* HttpManager */,
 				286BD8291E273D9900811B85 /* AppDelegate.h */,
 				286BD82A1E273D9900811B85 /* AppDelegate.m */,
+				CD588EE11E7A2C54005C9AFD /* LSHttpManager.h */,
+				CD588EE21E7A2C54005C9AFD /* LSHttpManager.m */,
 				286BD82C1E273D9900811B85 /* ViewController.h */,
 				286BD82D1E273D9900811B85 /* ViewController.m */,
 				286BD8601E273E5C00811B85 /* Main.storyboard */,
@@ -269,7 +274,7 @@
 				TargetAttributes = {
 					286BD8221E273D9900811B85 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = U7SJ4KA3L8;
+						DevelopmentTeam = TMHG22C2C5;
 						ProvisioningStyle = Automatic;
 					};
 					286BD83B1E273D9900811B85 = {
@@ -476,6 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD588EE31E7A2C54005C9AFD /* LSHttpManager.m in Sources */,
 				286BD82E1E273D9900811B85 /* ViewController.m in Sources */,
 				286BD82B1E273D9900811B85 /* AppDelegate.m in Sources */,
 				286BD8281E273D9900811B85 /* main.m in Sources */,
@@ -619,11 +625,10 @@
 			baseConfigurationReference = 11396DE5168AB56EEF6C80C2 /* Pods-HttpManager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = U7SJ4KA3L8;
+				DEVELOPMENT_TEAM = TMHG22C2C5;
 				INFOPLIST_FILE = HttpManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kuaichengwuliu.HttpManager;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mytogo.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -633,11 +638,10 @@
 			baseConfigurationReference = 05AC50EA128DE1355CD24E61 /* Pods-HttpManager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = U7SJ4KA3L8;
+				DEVELOPMENT_TEAM = TMHG22C2C5;
 				INFOPLIST_FILE = HttpManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kuaichengwuliu.HttpManager;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mytogo.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

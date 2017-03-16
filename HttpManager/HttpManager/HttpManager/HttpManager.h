@@ -60,7 +60,7 @@ typedef void (^Success)(NSDictionary* response);
 /*! 定义请求失败的 block */
 typedef void (^Failure)(NSError *error);
 /*! 定义上传下载进度 block */
-typedef void(^UploadDownloadProgress)(CGFloat progress);
+typedef void(^UploadDownloadProgress)(CGFloat progressValue);
 /*! 实时监测网络状态的 block */
 typedef void(^NetworkStatusBlock)(NetworkStatus status);
 
@@ -95,7 +95,7 @@ typedef void(^NetworkStatusBlock)(NetworkStatus status);
 /**
  *  下载文件
  */
-+ (NSURLSessionDownloadTask *)DownLoadFileWithURLString:(NSString *)URLString parameters:(NSDictionary *)parameters savaPath:(NSString *)savePath resumeData:(NSData*)resumeData progress:(UploadDownloadProgress)progress success:(Success)success failure:(Failure)failure;
++ (NSURLSessionDownloadTask *)DownLoadFileWithURLString:(NSString *)URLString parameters:(NSDictionary *)parameters savaPath:(NSString *)savePath resumeData:(NSData*)resumeData  success:(Success)success failure:(Failure)failure progress:(UploadDownloadProgress)progress;
 
 /**
  *  上传视频文件
@@ -135,8 +135,14 @@ typedef void(^NetworkStatusBlock)(NetworkStatus status);
 + (BOOL)isWiFiNetwork;
 
 
-//单例
-+ (instancetype)sharedHttpManager;
+
+//----------------以下两个方法如果需要使用可以重写
+
+// - 返回公共参数字典
++(NSDictionary *)getPublicParams;
+
+//- 返回要设置的cookie字典
++(NSDictionary*)getCookieDictionary;
 
 
 @end

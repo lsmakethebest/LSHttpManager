@@ -37,6 +37,9 @@
 @property(nonatomic,strong) AFHTTPSessionManager *manager;
 @property(nonatomic,strong) NSMutableArray *tasks;
 
+//单例
++ (instancetype)sharedHttpManager;
+
 @end
 
 
@@ -255,7 +258,7 @@ static HttpManager *instance = nil;
 
 
 #pragma mark - 文件下载
-+ (NSURLSessionDownloadTask *)DownLoadFileWithURLString:(NSString *)URLString parameters:(NSDictionary *)parameters savaPath:(NSString *)savePath resumeData:(NSData *)resumeData progress:(UploadDownloadProgress)progress success:(Success)success failure:(Failure)failure
++ (NSURLSessionDownloadTask *)DownLoadFileWithURLString:(NSString *)URLString parameters:(NSDictionary *)parameters savaPath:(NSString *)savePath resumeData:(NSData *)resumeData  success:(Success)success failure:(Failure)failure progress:(UploadDownloadProgress)progress
 {
 
   __block  NSURLSessionDownloadTask *sessionTask = nil;
@@ -573,15 +576,22 @@ static HttpManager *instance = nil;
     return nil;
 }
 
+
++(NSDictionary*)getCookieDictionary
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    return dic;
+    
+}
 #pragma mark - 设置cookie
 + (void)setCookie:(NSString *)newUrl
 {
-    // 定义 cookie 要设定的 host
-    NSURL *cookieHost = [NSURL URLWithString:newUrl];
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    if (dic.allKeys.count==0) {
+    NSDictionary *dic= [self getCookieDictionary];
+    if (dic==nil||dic.allKeys.count==0) {
         return;
     }
+    // 定义 cookie 要设定的 host
+    NSURL *cookieHost = [NSURL URLWithString:newUrl];
     [dic enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         // 设定 cookie
         NSHTTPCookie *cookie = [NSHTTPCookie
@@ -598,11 +608,26 @@ static HttpManager *instance = nil;
 }
 
 #pragma mark - 设置公共参数
-+ (id)setPublicParams:(id)params
++(NSDictionary*)setPublicParams:(NSDictionary*)params
 {
+    NSDictionary *dic=[self getPublicParams];
+    if (dic==nil||dic.allKeys.count<=0) {
+        return params;
+    }
+    if (params==nil) {
+        params=[NSDictionary dictionary];
+    }
     NSMutableDictionary *newParams =
     [[NSMutableDictionary alloc] initWithDictionary:params];
+    for (NSString *key in dic) {
+        [newParams setValue:dic[key] forKeyPath:key];
+    }
     return newParams;
+}
+
++(NSDictionary *)getPublicParams
+{
+    return nil;
 }
 
 @end
